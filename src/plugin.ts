@@ -1,7 +1,7 @@
-// plugin.ts
 import type { Plugin } from "vite";
 import { readFileSync } from "fs";
 import { join } from "path";
+import type { OutputChunk } from "rollup";
 
 function generateEntryCode(projectFileName: string, srcDir: string) {
   const importPath = `${srcDir}/${projectFileName}`.replace(/\\/g, "/");
@@ -77,7 +77,7 @@ export function MuxVitePlugin(projectFileName: string, srcDir: string): Plugin {
       const virtualChunk = Object.values(bundle).find(
         (c) =>
           c.type === "chunk" && c.facadeModuleId === resolvedVirtualModuleId
-      ) as import("rollup").OutputChunk | undefined;
+      ) as OutputChunk | undefined;
 
       if (!virtualChunk) {
         throw new Error("react-mpx: Virtual entry chunk not found in bundle.");
@@ -87,7 +87,7 @@ export function MuxVitePlugin(projectFileName: string, srcDir: string): Plugin {
       let userHtml: string;
       try {
         userHtml = readFileSync(indexPath, "utf-8");
-      } catch (err) {
+      } catch {
         throw new Error(
           "react-mpx: index.html is required but not found in project root."
         );

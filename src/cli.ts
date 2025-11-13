@@ -2,7 +2,6 @@
 import { Command } from "commander";
 import { createServer } from "vite";
 import { build as viteBuild } from "vite";
-import { join } from "path";
 import {
   getAvailableProjects,
   selectProjectInteractively,
