@@ -49,6 +49,7 @@ program
 
       const server = await createServer({
         plugins: [MuxVitePlugin(projectFileName, srcDir)],
+        mode: projectName,
       });
 
       await server.listen();
