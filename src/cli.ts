@@ -94,9 +94,7 @@ program
         mode: projectName,
       });
 
-      console.log(
-        `\n✨ Built project "${projectName}" to dist/${projectName}\n`
-      );
+      console.log(`\n✨ Built project "${projectName}"\n`);
     } catch (err: any) {
       console.error(err.message ?? "");
       process.exit(1);
