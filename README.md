@@ -29,8 +29,16 @@ Future versions may support building multiple projects in one pass, but this wil
 
 ## Installation
 
+**Globally (recommended for faster take-off):**
+
 ```bash
-npm install -D react-mpx
+npm install -g react-mpx
+```
+
+**Or**
+
+```bash
+npx react-mpx
 ```
 
 ## Usage
@@ -38,15 +46,15 @@ npm install -D react-mpx
 List available projects interactively:
 
 ```bash
-npx react-mpx dev
-npx react-mpx build
+react-mpx dev
+react-mpx build
 ```
 
 Or specify a project directly:
 
 ```bash
-npx react-mpx dev --project app-a
-npx react-mpx build --project admin-panel
+react-mpx dev --project app-a
+react-mpx build --project admin-panel
 ```
 
 ### Custom projects directory
@@ -54,7 +62,7 @@ npx react-mpx build --project admin-panel
 By default, projects are loaded from `src/projects/`. You can override this:
 
 ```bash
-npx react-mpx dev --project my-app --src ./apps
+react-mpx dev --project my-app --src ./apps
 ```
 
 ## Accessing the Active Project in Code
