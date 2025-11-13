@@ -9,8 +9,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# lockfile
-package-lock.json
+# unwanted lockfiles
 yarn.lock
 pnpm-lock.json
 
