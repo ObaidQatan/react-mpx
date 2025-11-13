@@ -1,5 +1,5 @@
 {
-  "name": "react-mux",
+  "name": "react-mpx",
   "version": "0.1.0",
   "description": "Run and export multiple React projects from a single codebase",
   "keywords": [
@@ -10,13 +10,13 @@
     "vite-plugin",
     "monorepo"
   ],
-  "homepage": "https://github.com/ObaidQatan/react-mux",
+  "homepage": "https://github.com/ObaidQatan/react-mpx",
   "bugs": {
-    "url": "https://github.com/ObaidQatan/react-mux/issues"
+    "url": "https://github.com/ObaidQatan/react-mpx/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ObaidQatan/react-mux.git"
+    "url": "git+https://github.com/ObaidQatan/react-mpx.git"
   },
   "license": "MIT",
   "author": "Obaid Qatan ogaten27@gmail.com",
@@ -24,7 +24,7 @@
   "main": "./dist/cli.js",
   "types": "./dist/cli.d.ts",
   "bin": {
-    "react-mux": "./dist/cli.js"
+    "react-mpx": "./dist/cli.js"
   },
   "files": [
     "dist"

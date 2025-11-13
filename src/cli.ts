@@ -17,7 +17,7 @@ import { MuxVitePlugin } from "./plugin.js";
 const program = new Command();
 
 program
-  .name("react-mux")
+  .name("react-mpx")
   .description("Run multiple React projects from one codebase")
   .version("0.1.0");
 
@@ -54,7 +54,9 @@ program
 
       await server.listen();
       const localUrl = (server as any).resolvedUrls.local[0];
-      console.log(`\n🚀 React Mux dev server running for "${projectName}"`);
+      console.log(
+        `\n🚀 React Multiplexer dev server running for "${projectName}"`
+      );
       console.log(`   ${localUrl}\n`);
     } catch (err: any) {
       console.error(err.message ?? "");
@@ -104,11 +106,11 @@ program
 // check command
 program
   .command("check")
-  .description("Validate project setup for react-mux compatibility")
+  .description("Validate project setup for react-mpx compatibility")
   .action(() => {
     try {
       checkProjectSetup();
-      console.log("✅ Project is ready for react-mux!");
+      console.log("✅ Project is ready for react-mpx!");
     } catch (err: any) {
       console.error("\n❌ Project setup check failed:");
       console.error(err.message ?? "");

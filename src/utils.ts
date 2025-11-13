@@ -62,7 +62,7 @@ export function checkProjectSetup(): void {
   // 1.1 Check index.html exists
   const indexPath = join(cwd, "index.html");
   if (!existsSync(indexPath)) {
-    errors.push("react-mux: index.html not found in project root.");
+    errors.push("react-mpx: index.html not found in project root.");
   } else {
     // 1.2 Check if the original main.tsx script exists
     const indexHtml = readFileSync(indexPath, "utf-8");
@@ -71,9 +71,9 @@ export function checkProjectSetup(): void {
 
     if (mainScriptRegex.test(indexHtml)) {
       errors.push(
-        'react-mux: Found forbidden <script src="/src/main.*"> in index.html.\n' +
+        'react-mpx: Found forbidden <script src="/src/main.*"> in index.html.\n' +
           "👉 Please remove this line from index.html.\n" +
-          "   react-mux injects its own entry point dynamically."
+          "   react-mpx injects its own entry point dynamically."
       );
     }
   }
@@ -87,16 +87,16 @@ export function checkProjectSetup(): void {
   if (existingMainFiles.length > 0) {
     const fileList = existingMainFiles.map((f) => `src/${f}`).join(", ");
     errors.push(
-      `react-mux: Found forbidden main file(s): ${fileList}.\n` +
+      `react-mpx: Found forbidden main file(s): ${fileList}.\n` +
         "👉 Please delete these files.\n" +
-        "   react-mux uses a virtual entry point and does not need a main file."
+        "   react-mpx uses a virtual entry point and does not need a main file."
     );
   }
 
   // Throw all errors at once (if any)
   if (errors.length > 0) {
     const fullMessage = [
-      "❌ React Mux project setup check failed:\n",
+      "❌ React Multiplexer project setup check failed:\n",
       ...errors.map((err, i) => `\n${i + 1}. ${err}`),
       "\n\nFix the above issues and try again.",
     ].join("");

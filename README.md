@@ -1,12 +1,12 @@
-# react-mux
+# react-mpx
 
-`react-mux` is a CLI tool that enables you to run and build multiple React projects from a **single codebase**. The name "mux" stands for **multiplexer**—a device that selects between several input signals and forwards the selected input to a single output line. Similarly, `react-mux` dynamically selects and serves one project at a time from a shared set of source files.
+`react-mpx` is a CLI tool that enables you to run and build multiple React projects from a **single codebase**. The shortcut "mpx" stands for **multiplexer** or **MUX**—a device that selects between several input signals and forwards the selected input to a single output line. Similarly, `react-mpx` dynamically selects and serves one project at a time from a shared set of source files.
 
 ## Motivation
 
-In many organizations, teams maintain multiple frontend applications that share common components, utilities, and infrastructure. Instead of duplicating this shared logic across repositories, `react-mux` lets you colocate multiple projects in one codebase while ensuring they remain **independent at build and deployment time**.
+In many organizations, teams maintain multiple frontend applications that share common components, utilities, and infrastructure. Instead of duplicating this shared logic across repositories, `react-mpx` lets you colocate multiple projects in one codebase while ensuring they remain **independent at build and deployment time**.
 
-> **Important**: `react-mux` is **not a DevOps or multi-project deployment solution**. It is designed to **reduce redundancy during development** by sharing code (components, hooks, styles, etc.) across projects. Each project should be treated as a standalone application and deployed from its own repository or pipeline. If you modify only one project, only that project should be rebuilt and redeployed—others must not be affected. This tool intentionally builds to a single `dist/` directory to reinforce that only **one project is active per build**.
+> **Important**: `react-mpx` is **not a DevOps or multi-project deployment solution**. It is designed to **reduce redundancy during development** by sharing code (components, hooks, styles, etc.) across projects. Each project should be treated as a standalone application and deployed from its own repository or pipeline. If you modify only one project, only that project should be rebuilt and redeployed—others must not be affected. This tool intentionally builds to a single `dist/` directory to reinforce that only **one project is active per build**.
 
 Future versions may support building multiple projects in one pass, but this will remain **optional** and opt-in.
 
@@ -30,7 +30,7 @@ Future versions may support building multiple projects in one pass, but this wil
 ## Installation
 
 ```bash
-npm install -D react-mux
+npm install -D react-mpx
 ```
 
 ## Usage
@@ -38,15 +38,15 @@ npm install -D react-mux
 List available projects interactively:
 
 ```bash
-npx react-mux dev
-npx react-mux build
+npx react-mpx dev
+npx react-mpx build
 ```
 
 Or specify a project directly:
 
 ```bash
-npx react-mux dev --project app-a
-npx react-mux build --project admin-panel
+npx react-mpx dev --project app-a
+npx react-mpx build --project admin-panel
 ```
 
 ### Custom projects directory
@@ -54,7 +54,7 @@ npx react-mux build --project admin-panel
 By default, projects are loaded from `src/projects/`. You can override this:
 
 ```bash
-npx react-mux dev --project my-app --src ./apps
+npx react-mpx dev --project my-app --src ./apps
 ```
 
 ## Accessing the Active Project in Code

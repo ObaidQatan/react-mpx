@@ -16,7 +16,7 @@ const loadApp = async () => {
 
 loadApp().then(App => {
   const root = document.getElementById('root');
-  if (!root) throw new Error('react-mux: #root element not found in index.html');
+  if (!root) throw new Error('react-mpx: #root element not found in index.html');
   createRoot(root).render(
     React.createElement(React.StrictMode, null,
       React.createElement(App, null)
@@ -37,7 +37,7 @@ export function MuxVitePlugin(projectFileName: string, srcDir: string): Plugin {
   const entryCode = generateEntryCode(projectFileName, srcDir);
 
   return {
-    name: "react-mux-entry",
+    name: "react-mpx-entry",
     enforce: "pre",
 
     config(_, { command }) {
@@ -80,7 +80,7 @@ export function MuxVitePlugin(projectFileName: string, srcDir: string): Plugin {
       ) as import("rollup").OutputChunk | undefined;
 
       if (!virtualChunk) {
-        throw new Error("react-mux: Virtual entry chunk not found in bundle.");
+        throw new Error("react-mpx: Virtual entry chunk not found in bundle.");
       }
 
       const indexPath = join(process.cwd(), "index.html");
@@ -89,7 +89,7 @@ export function MuxVitePlugin(projectFileName: string, srcDir: string): Plugin {
         userHtml = readFileSync(indexPath, "utf-8");
       } catch (err) {
         throw new Error(
-          "react-mux: index.html is required but not found in project root."
+          "react-mpx: index.html is required but not found in project root."
         );
       }
 
