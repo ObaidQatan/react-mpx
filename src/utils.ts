@@ -59,12 +59,12 @@ export function checkProjectSetup(): void {
   const cwd = process.cwd();
   const errors: string[] = [];
 
-  // 1. Check index.html exists
+  // 1.1 Check index.html exists
   const indexPath = join(cwd, "index.html");
   if (!existsSync(indexPath)) {
     errors.push("react-mux: index.html not found in project root.");
   } else {
-    // Only check content if file exists
+    // 1.2 Check if the original main.tsx script exists
     const indexHtml = readFileSync(indexPath, "utf-8");
     const mainScriptRegex =
       /<script[^>]*src\s*=\s*["']\/?src\/main\.(tsx|jsx|ts|js)["'][^>]*>/i;
@@ -96,7 +96,7 @@ export function checkProjectSetup(): void {
   // Throw all errors at once (if any)
   if (errors.length > 0) {
     const fullMessage = [
-      "❌ react-mux project setup check failed:\n",
+      "❌ React Mux project setup check failed:\n",
       ...errors.map((err, i) => `\n${i + 1}. ${err}`),
       "\n\nFix the above issues and try again.",
     ].join("");

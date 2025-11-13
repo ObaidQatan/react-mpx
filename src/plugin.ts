@@ -30,7 +30,7 @@ loadApp().then(App => {
 }
 
 export function MuxVitePlugin(projectFileName: string, srcDir: string): Plugin {
-  // ✅ Use .tsx extension — most reliable signal for JSX
+  // Using .tsx extension — most reliable signal for JSX
   const virtualModuleId = "virtual:mux-entry.tsx";
   const resolvedVirtualModuleId = `\0${virtualModuleId}`;
 
@@ -66,7 +66,6 @@ export function MuxVitePlugin(projectFileName: string, srcDir: string): Plugin {
 
     transformIndexHtml(html, ctx) {
       if (ctx.server) {
-        // ✅ Inject using .tsx extension — no need for ?lang=tsx
         return html.replace(
           "</body>",
           `<script type="module" src="/@id/__x00__${virtualModuleId}"></script></body>`
@@ -84,7 +83,6 @@ export function MuxVitePlugin(projectFileName: string, srcDir: string): Plugin {
         throw new Error("react-mux: Virtual entry chunk not found in bundle.");
       }
 
-      // 🔥 Strict: fail if index.html doesn't exist
       const indexPath = join(process.cwd(), "index.html");
       let userHtml: string;
       try {

@@ -1,20 +1,42 @@
 {
   "name": "react-mux",
   "version": "0.1.0",
-  "description": "Run multiple React projects from a single codebase",
-  "main": "dist/cli.js",
+  "description": "Run and export multiple React projects from a single codebase",
+  "keywords": [
+    "vite",
+    "react",
+    "multiproject",
+    "cli",
+    "vite-plugin",
+    "monorepo"
+  ],
+  "homepage": "https://github.com/ObaidQatan/react-mux",
+  "bugs": {
+    "url": "https://github.com/ObaidQatan/react-mux/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ObaidQatan/react-mux.git"
+  },
+  "license": "MIT",
+  "author": "Obaid Qatan ogaten27@gmail.com",
+  "type": "module",
+  "main": "./dist/cli.js",
+  "types": "./dist/cli.d.ts",
   "bin": {
     "react-mux": "./dist/cli.js"
   },
-  "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
-    "dev": "tsx src/cli.ts"
+    "dev": "tsx src/cli.ts",
+    "prepublishOnly": "npm run build"
   },
-  "files": [
-    "dist",
-    "templates"
-  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "dependencies": {
     "commander": "^12.0.0",
     "enquirer": "^2.4.1",

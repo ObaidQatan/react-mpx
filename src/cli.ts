@@ -54,7 +54,7 @@ program
 
       await server.listen();
       const localUrl = (server as any).resolvedUrls.local[0];
-      console.log(`\n🚀 react-mux dev server running for "${projectName}"`);
+      console.log(`\n🚀 React Mux dev server running for "${projectName}"`);
       console.log(`   ${localUrl}\n`);
     } catch (err: any) {
       console.error(err.message ?? "");
@@ -85,7 +85,7 @@ program
       const projectFileName = findProjectFile(srcDir, projectName);
 
       ensureDistClean(projectName);
-      process.env.OUT_DIR = join(process.cwd(), "dist", projectName);
+      // TODO: Support builds for multiple projects at once (dist/project-name)
 
       await viteBuild({
         plugins: [MuxVitePlugin(projectFileName, srcDir)],
@@ -93,7 +93,7 @@ program
       });
 
       console.log(
-        `\n✅ Built project "${projectName}" to dist/${projectName}\n`
+        `\n✨ Built project "${projectName}" to dist/${projectName}\n`
       );
     } catch (err: any) {
       console.error(err.message ?? "");
